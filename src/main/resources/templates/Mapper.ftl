@@ -36,11 +36,5 @@
         </where>
     </select>
 
-    <select id="find${table_name}Page" parameterType="${package_name}.model.${table_name}DTO" resultMap="${table_name}DTOResultMap">
-        <include refid="findDtoSql" />
-        <where>
-            <include refid="parameterSql"></include>
-        </where>
-    </select>
 
 </mapper>
