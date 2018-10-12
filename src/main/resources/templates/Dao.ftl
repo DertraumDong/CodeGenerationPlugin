@@ -1,7 +1,10 @@
 package ${package_name}.dao;
 
+import java.util.List;
+import ${package_name}.model.${table_name};
 import ${package_name}.model.${table_name}DTO;
 import org.springframework.stereotype.Component;
+
 /**
 * 描述：${table_annotation} 服务Dao接口
 * @author ${author}
@@ -15,6 +18,8 @@ public interface ${table_name}DAO {
     * @param id
     */
     ${table_name}DTO findDTOById(String id)throws Exception;
+
+    List<${table_name}> selectAll(${table_name} ${table_name?lower_case});
 
     ${table_name}DTO create${table_name}(${table_name}DTO ${table_name?uncap_first}DTO) throws Exception;
 

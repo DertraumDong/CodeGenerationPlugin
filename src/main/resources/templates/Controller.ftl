@@ -3,6 +3,7 @@ import ${package_name}.service.I${table_name}Service;
 import ${package_name}.model.${table_name};
 import ${package_name}.model.${table_name}DTO;
 import ${package_name}.model.ResultData;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,5 +36,14 @@ public class ${table_name}Controller {
         return new ResultData(${table_name?uncap_first}DTO);
     }
 
+    /**
+    * 描述：根据条件查询User
+    * @param ${table_name?lower_case}
+    */
+    @RequestMapping(value = "/list", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResultData selectAll(@RequestBody ${table_name} ${table_name?lower_case}){
+        List<${table_name}> ${table_name?lower_case}List = ${table_name?lower_case}Service.selectAll(${table_name?lower_case});
+        return new ResultData(${table_name?lower_case}List);
+    }
 
 }

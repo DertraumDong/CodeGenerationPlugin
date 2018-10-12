@@ -6,16 +6,15 @@
         <#if model_column ?exists>
             <#list model_column as model>
                 <#if model.isKey ?? && model.isKey=1>
-                <id column="${model.changeColumnName}" property="${model.changeColumnName}" jdbcType="${model.columnType?upper_case}" />
+                <id column="${model.changeColumnName}" property="${model.changeColumnName}" jdbcType="${model.jdbcType?upper_case}" />
                 <#else>
-                <result column="${model.changeColumnName}" property="${model.changeColumnName}" jdbcType="${model.columnType?upper_case}" />
+                <result column="${model.changeColumnName}" property="${model.changeColumnName}" jdbcType="${model.jdbcType?upper_case}"/>
                 </#if>
             </#list>
         </#if>
     </resultMap>
 
     <sql id="findDtoSql">
-
         select * from  ${table_name_small}
     </sql>
 
@@ -29,12 +28,35 @@
         </#if>
     </sql>
 
+    <sql id="sortSql">
+        <if test="sortName != null">
+            ORDER BY ${r'#{sortName}'}  ${r'#{sortRule}'}
+        </if>
+        <#if model_column ?exists>
+            <#list model_column as model>
+                <#if model.isKey ?? && model.isKey=1>
+                <if test="sortName == null">
+                    ORDER BY ${model.changeColumnName} ASC
+                </if>
+                </#if>
+            </#list>
+        </#if>
+    </sql>
+
     <select id="findDTOById" parameterType="String" resultMap="${table_name}DTOResultMap">
         <include refid="findDtoSql"></include>
         <where>
             <include refid="parameterSql"></include>
         </where>
+        <include refid="sortSql"></include>
     </select>
 
+    <select id="selectAll" parameterType="${package_name}.model.${table_name}" resultMap="${table_name}DTOResultMap" >
+        <include refid="findDtoSql"></include>
+        <where>
+            <include refid="parameterSql"></include>
+        </where>
+        <include refid="sortSql"></include>
+    </select>
 
 </mapper>
