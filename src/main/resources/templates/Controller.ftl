@@ -19,7 +19,7 @@ import org.springframework.http.MediaType;
 * @version V1.0
 */
 @RestController
-@RequestMapping("/${table_name}")
+@RequestMapping("/${table_name?lower_case}")
 public class ${table_name}Controller {
 
     @Autowired
