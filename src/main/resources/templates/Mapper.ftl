@@ -6,9 +6,9 @@
         <#if model_column ?exists>
             <#list model_column as model>
                 <#if model.isKey ?? && model.isKey=1>
-                <id column="${model.changeColumnName}" property="${model.changeColumnName}" jdbcType="${model.jdbcType?upper_case}" />
+                <id column="${model.changeColumnName}" property="${model.changeColumnName}" jdbcType="${model.columnType?upper_case}" />
                 <#else>
-                <result column="${model.changeColumnName}" property="${model.changeColumnName}" jdbcType="${model.jdbcType?upper_case}"/>
+                <result column="${model.changeColumnName}" property="${model.changeColumnName}" jdbcType="${model.columnType?upper_case}"/>
                 </#if>
             </#list>
         </#if>
