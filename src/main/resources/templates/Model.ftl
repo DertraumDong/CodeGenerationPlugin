@@ -8,7 +8,8 @@ import java.util.Date;
 * @author ${author}
 * @date ${date}
 */
-public class ${table_name} implements java.io.Serializable {
+public class ${table_name} implements BaseModel {
+
 
 <#if model_column ?exists>
     <#list model_column as model>
