@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="${package_name}.dao.${table_name}DAO">
 
+
     <resultMap id="${table_name}DTOResultMap" type="${package_name}.model.${table_name}DTO">
         <#if model_column ?exists>
             <#list model_column as model>
