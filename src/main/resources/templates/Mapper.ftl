@@ -15,15 +15,23 @@
     </resultMap>
 
     <sql id="findDtoSql">
-        select * from  ${table_name_small}
+        select <include refid="resultSql"></include> from  ${table_name_small}
+    </sql>
+
+    <sql id="resultSql">
+        <#if model_column ?exists>
+            <#list model_column as model>
+                ${model.changeColumnName} <#if model_has_next > ,</#if>
+            </#list>
+        </#if>
     </sql>
 
     <sql id="parameterSql">
         <#if model_column ?exists>
             <#list model_column as model>
-        <if test="${model.changeColumnName} != null">
-            AND ${model.changeColumnName} =  ${r'#{'+ model.changeColumnName +'}' }
-        </if>
+                <if test="${model.changeColumnName} != null">
+                    AND ${model.changeColumnName} =  ${r'#{'+ model.changeColumnName +'}' }
+                </if>
             </#list>
         </#if>
     </sql>
@@ -46,9 +54,8 @@
     <select id="findDTOById" parameterType="String" resultMap="${table_name}DTOResultMap">
         <include refid="findDtoSql"></include>
         <where>
-            <include refid="parameterSql"></include>
+            ${r'#{_parameter}'}
         </where>
-        <include refid="sortSql"></include>
     </select>
 
     <select id="selectAll" parameterType="${package_name}.model.${table_name}" resultMap="${table_name}DTOResultMap" >

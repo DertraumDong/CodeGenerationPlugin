@@ -388,11 +388,16 @@ public class GenerationUtil {
         path += changeTableName + suffix;
         final String templateName = "Mapper.ftl";
         List<ColumnClass> columnClassList = new ArrayList<ColumnClass>();
+
         ColumnClass column = null;
         while(resultSet.next()){
             column = new ColumnClass();
             String columnName = resultSet.getString("COLUMN_NAME");
-            String columnType = resultSet.getString("TYPE_NAME").toLowerCase();
+            String type = resultSet.getString("DATA_TYPE");
+            Integer t = Integer.valueOf(type);
+            String columnType = JdbcTypeData.format(t);
+            //String columnType = resultSet.getString("TYPE_NAME");//.toLowerCase()
+            //JdbcTypeData.format(JdbcTypeData.stringForInteger(columnType));
             String columnRemark = resultSet.getString("REMARKS");
             int len = resultSet.getInt("COLUMN_SIZE");
             int precision = resultSet.getInt("DECIMAL_DIGITS");

@@ -62,8 +62,8 @@ public class ${table_name} implements java.io.Serializable {
         return this.${model.changeColumnName};
     }
 
-    public void set${model.changeColumnName?cap_first}(String ${model.changeColumnName?cap_first}) {
-        this.${model.changeColumnName} = ${model.changeColumnName?cap_first};
+    public void set${model.changeColumnName?cap_first}(String ${model.changeColumnName}) {
+        this.${model.changeColumnName} = ${model.changeColumnName};
     }
         </#if>
         <#if (model.columnType == 'int' || model.columnType == 'mediumint' )>
@@ -71,7 +71,7 @@ public class ${table_name} implements java.io.Serializable {
         return this.${model.changeColumnName};
     }
 
-    public void set${model.changeColumnName?cap_first}(Integer ${model.changeColumnName?cap_first}) {
+    public void set${model.changeColumnName?cap_first}(Integer ${model.changeColumnName}) {
         this.${model.changeColumnName} = ${model.changeColumnName};
     }
         </#if>
@@ -80,7 +80,7 @@ public class ${table_name} implements java.io.Serializable {
         return this.${model.changeColumnName};
     }
 
-    public void set${model.changeColumnName?cap_first}(Long ${model.changeColumnName?cap_first}) {
+    public void set${model.changeColumnName?cap_first}(Long ${model.changeColumnName}) {
         this.${model.changeColumnName} = ${model.changeColumnName};
     }
         </#if>
@@ -89,7 +89,7 @@ public class ${table_name} implements java.io.Serializable {
         return this.${model.changeColumnName};
     }
 
-    public void set${model.changeColumnName?cap_first}(Byte ${model.changeColumnName?cap_first}) {
+    public void set${model.changeColumnName?cap_first}(Byte ${model.changeColumnName}) {
         this.${model.changeColumnName} = ${model.changeColumnName};
     }
         </#if>
@@ -98,7 +98,7 @@ public class ${table_name} implements java.io.Serializable {
         return this.${model.changeColumnName};
     }
 
-    public void set${model.changeColumnName?cap_first}(byte[] ${model.changeColumnName?cap_first}) {
+    public void set${model.changeColumnName?cap_first}(byte[] ${model.changeColumnName}) {
         this.${model.changeColumnName} = ${model.changeColumnName};
     }
         </#if>
@@ -107,7 +107,7 @@ public class ${table_name} implements java.io.Serializable {
         return this.${model.changeColumnName};
     }
 
-    public void set${model.changeColumnName?cap_first}(BigDecimal ${model.changeColumnName?cap_first}) {
+    public void set${model.changeColumnName?cap_first}(BigDecimal ${model.changeColumnName}) {
         this.${model.changeColumnName} = ${model.changeColumnName};
     }
         </#if>
@@ -116,7 +116,7 @@ public class ${table_name} implements java.io.Serializable {
         return this.${model.changeColumnName};
     }
 
-    public void set${model.changeColumnName?cap_first}(Double ${model.changeColumnName?cap_first}) {
+    public void set${model.changeColumnName?cap_first}(Double ${model.changeColumnName}) {
         this.${model.changeColumnName} = ${model.changeColumnName};
     }
         </#if>
@@ -125,7 +125,7 @@ public class ${table_name} implements java.io.Serializable {
         return this.${model.changeColumnName};
     }
 
-    public void set${model.changeColumnName?cap_first}(Float ${model.changeColumnName?cap_first}) {
+    public void set${model.changeColumnName?cap_first}(Float ${model.changeColumnName}) {
         this.${model.changeColumnName} = ${model.changeColumnName};
     }
         </#if>
