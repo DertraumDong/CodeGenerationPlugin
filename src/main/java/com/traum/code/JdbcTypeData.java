@@ -167,4 +167,7 @@ public class JdbcTypeData {
         return nameToType.get(str);
     }
 
+    public static String typeToName(Integer integer){
+        return typeToName.get(integer);
+    }
 }

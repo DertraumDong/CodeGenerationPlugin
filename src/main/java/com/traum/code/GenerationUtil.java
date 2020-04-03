@@ -4,12 +4,10 @@ import freemarker.template.Template;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.*;
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.Date;
 
 /**
  * 代码生成工具
@@ -395,7 +393,7 @@ public class GenerationUtil {
             String columnName = resultSet.getString("COLUMN_NAME");
             String type = resultSet.getString("DATA_TYPE");
             Integer t = Integer.valueOf(type);
-            String columnType = JdbcTypeData.format(t);
+            String columnType = JdbcTypeData.typeToName(t);
             //String columnType = resultSet.getString("TYPE_NAME");//.toLowerCase()
             //JdbcTypeData.format(JdbcTypeData.stringForInteger(columnType));
             String columnRemark = resultSet.getString("REMARKS");

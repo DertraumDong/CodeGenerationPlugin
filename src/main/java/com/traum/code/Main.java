@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         GenerationUtil generationUtil = GenerationUtil.init(
-                "metadate",
+                "bank",
                 "com.d.main",
                 "/com/d/main",
                 "元数据",
@@ -12,7 +12,7 @@ public class Main {
                 "traum",
                 "123456",
                 "com.mysql.cj.jdbc.Driver",
-                "D:/demo1/");
+                "D:/demo/");
         generationUtil.generate();
     }
 }
