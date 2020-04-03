@@ -8,7 +8,7 @@ import java.util.Date;
 * @author ${author}
 * @date ${date}
 */
-public class ${table_name} implements BaseModel {
+public class ${table_name} extends BaseModel {
 
 
 <#if model_column ?exists>
